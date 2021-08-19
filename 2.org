@@ -278,14 +278,15 @@ Emacs有两个滚屏方法，scroll-up和scroll-down，分别绑定到C-v和M-v�
 
 同样，我们可以给他们一个可选参数来使函数更通用：
 #+BEGIN_SRC elisp
-  (defun scroll-n-lines-ahead (&optional n)
-    "Scroll ahead N lines (1 by default)."
-    (interactive "P")
-    (scroll-ahead (prefix-numeric-value n)))
+    (defun scroll-n-lines-ahead (&optional n)
+      "Scroll ahead N lines (1 by default)."
+      (interactive "P")
+      (scroll-ahead (prefix-numeric-value n)))
    
-  (defun scroll-n-lines-behind (&optional n)
-    "Scroll behind N lines (1 by default)."
-    (interactive "P"))
+    (defun scroll-n-lines-behind (&optional n)
+      "Scroll behind N lines (1 by default)."
+      (interactive "P")
+      (scroll-behind (prefix-numeric-value n)))
 #+END_SRC
 
 最后，我们需要选择按键来绑定新的命令。我喜欢C-q绑定scroll-n-lines-behind而C-z绑定scroll-n-lines-ahead：
